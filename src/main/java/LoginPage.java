@@ -20,6 +20,9 @@ public class LoginPage extends BasePage {
     @FindBy(css = "h3[data-test='error']")
     private WebElement loginErrorMsg;
 
+    @FindBy(css = "div[class='login_logo']")
+    private WebElement loginLogo;
+
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
@@ -37,6 +40,9 @@ public class LoginPage extends BasePage {
 
     public boolean isErrorMsgPopUp() {
         return loginErrorMsg.isDisplayed();
+    }
+    public boolean isLoginLogoAppear(){
+        return loginLogo.isDisplayed();
     }
 
 
