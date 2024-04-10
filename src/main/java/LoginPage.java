@@ -2,7 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
     public final static String LOGIN_URL = "https://www.saucedemo.com/";
 
     @FindBy(css = "input[id='user-name']")
@@ -25,17 +25,17 @@ public class LoginPage extends BasePage{
         super(webDriver);
     }
 
-    public void logIn(String userName, String password){
+    public void logIn(String userName, String password) {
         usernameField.sendKeys(userName);
         passwordField.sendKeys(password);
         loginButton.click();
     }
 
-    public boolean areWeLoggedIn(){
-       return swagLabsLogo.isDisplayed();
+    public boolean areWeLoggedIn() {
+        return swagLabsLogo.isDisplayed();
     }
 
-    public boolean isErrorMsgPopUp(){
+    public boolean isErrorMsgPopUp() {
         return loginErrorMsg.isDisplayed();
     }
 

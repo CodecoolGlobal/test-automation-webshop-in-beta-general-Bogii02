@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
     @FindBy(css = "button[id='react-burger-menu-btn']")
     private WebElement menu;
 
@@ -22,22 +22,27 @@ public class MainPage extends BasePage{
     private List<WebElement> products;
 
     @FindBy(css = "a[id='item_4_title_link'] div[data-test='inventory-item-name']")
-    public WebElement itemName;
+    private WebElement itemName;
 
     @FindBy(css = "button[id='back-to-products']")
-    public WebElement backProductsButton;
+    private WebElement backProductsButton;
 
     @FindBy(css = "a[data-test='shopping-cart-link']")
-    public WebElement shoppingCartButton;
+    private WebElement shoppingCartButton;
 
-    
+
     public MainPage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void addAllElementToCart(){
+    public int addAllElementToCart() {
         for (WebElement element : products) {
-            element.findElement(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory']")).click();
+            element.findElement(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory ']")).click();
         }
+        return products.size();
+    }
+
+    public void navigateToCart() {
+        shoppingCartButton.click();
     }
 }
