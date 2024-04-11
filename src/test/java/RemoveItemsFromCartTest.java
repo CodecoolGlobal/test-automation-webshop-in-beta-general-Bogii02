@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-public class AddItemsToCartTest {
+public class RemoveItemsFromCartTest {
     private WebDriver webDriver;
 
     @BeforeEach
@@ -13,17 +13,18 @@ public class AddItemsToCartTest {
         webDriver.navigate().to(LoginPage.LOGIN_URL);
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.logIn("standard_user", "secret_sauce");
+        MainPage shop = new MainPage(webDriver);
+        shop.addAllElementToCart();
+        shop.navigateToCart();
     }
 
     @Test
-    public void addAllItemsTest() {
-        MainPage shop = new MainPage(webDriver);
+    public void removeAllItemsTest() {
         CartPage cart = new CartPage(webDriver);
 
-        int addedItemsAmount = shop.addAllElementToCart();
-        shop.navigateToCart();
+        cart.removeAllItems();
 
-        Assertions.assertTrue(cart.verifyItemsAdded(addedItemsAmount));
+        Assertions.assertTrue(cart.verifyCartIsEmpty());
     }
 
     @AfterEach

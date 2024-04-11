@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,16 @@ public class CartPage extends BasePage {
         return amountOfItemsAdded == itemsInCart.size();
     }
 
+    public void removeAllItems() {
+        for (WebElement item : itemsInCart) {
+            item.findElement(By.xpath(".//*[starts-with(@id, 'remove-')]")).click();
+        }
+    }
+
+    public boolean verifyCartIsEmpty() {
+        return itemsInCart.isEmpty();
+    }
+  
     public void clickOnCheckout() {
         checkoutButton.click();
     }
