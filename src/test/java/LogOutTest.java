@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class LogOutTest {
 
     private WebDriver webDriver;
-    private LoginPage loginPage ;
+    private LoginPage loginPage;
 
 
     @BeforeEach
@@ -19,7 +19,7 @@ public class LogOutTest {
     }
 
     @Test
-    public void addAllItemToCartTest() {
+    public void successfulLogout() {
         MainPage mainPage = new MainPage(webDriver);
         mainPage.logOut();
         Assertions.assertTrue(loginPage.isLoginLogoAppear());
