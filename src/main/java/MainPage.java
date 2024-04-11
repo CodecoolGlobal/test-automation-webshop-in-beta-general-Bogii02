@@ -42,6 +42,11 @@ public class MainPage extends BasePage {
         return products.size();
     }
 
+    public void addOneElementToCart() {
+        WebElement element = products.get(0);
+        element.findElement(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory ']")).click();
+    }
+
     public void navigateToCart() {
         shoppingCartButton.click();
     }
