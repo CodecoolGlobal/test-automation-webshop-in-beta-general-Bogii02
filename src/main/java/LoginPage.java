@@ -5,22 +5,22 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends BasePage {
     public final static String LOGIN_URL = "https://www.saucedemo.com/";
 
-    @FindBy(css = "input[id='user-name']")
+    @FindBy(id = "user-name")
     private WebElement usernameField;
 
-    @FindBy(css = "input[id='password']")
+    @FindBy(id = "password")
     private WebElement passwordField;
 
-    @FindBy(css = "input[id='login-button']")
+    @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    @FindBy(css = "div[class='app_logo']")
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[1]/div[2]/div")
     private WebElement swagLabsLogo;
 
-    @FindBy(css = "h3[data-test='error']")
+    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]")
     private WebElement loginErrorMsg;
 
-    @FindBy(css = "div[class='login_logo']")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]")
     private WebElement loginLogo;
 
 
@@ -39,11 +39,9 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isErrorMsgPopUp() {
-        return loginErrorMsg.isDisplayed();
+        return loginErrorMsg.getText().contains("sadface");
     }
     public boolean isLoginLogoAppear(){
         return loginLogo.isDisplayed();
     }
-
-
 }
