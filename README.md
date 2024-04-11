@@ -7,7 +7,7 @@
     <img src="images/selenium.png" alt="Logo" width="50%" height="50%">
   </a>
 
-<h3 align="center">Selenium Jira Automation Test</h3>
+<h3 align="center">Selenium Webshop Automation Test</h3>
 
   <p align="center">
     Study project - Teamwork
@@ -66,7 +66,7 @@ To build and manage the project dependencies, Maven is required. You can install
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Sarfeher/PinkTissue.git
+   git clone https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-Bogii02
    ```
 2. Install the dependencies using Maven
    ```sh
@@ -120,7 +120,7 @@ Project Link: https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-
 
 [linkedin-url]: https://linkedin.com/in/othneildrew
 
-[product-screenshot]: images/webshop_screenshot.png
+[webshop_screenshot]: images/webshop_screenshot.png
 
 <!-- STACKS -->
 
