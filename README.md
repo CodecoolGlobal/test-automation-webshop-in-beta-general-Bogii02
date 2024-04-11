@@ -12,7 +12,7 @@
   <p align="center">
     Study project - Teamwork
     <br />
-    <a href="https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-Bogii02"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-Bogii02/tree/development/documents"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
