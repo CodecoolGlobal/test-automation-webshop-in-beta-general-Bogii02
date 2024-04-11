@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ProductsDetailsTest {
 
@@ -11,7 +13,8 @@ public class ProductsDetailsTest {
 
     @BeforeEach
     public void setup() {
-        webDriver = WebDriverProvider.setupWebDriver();
+        ChromeOptions options = new ChromeOptions().addArguments("--headless");
+        webDriver = new ChromeDriver(options);
         webDriver.navigate().to(LoginPage.LOGIN_URL);
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.logIn("standard_user", "secret_sauce");

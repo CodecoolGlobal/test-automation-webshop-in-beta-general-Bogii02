@@ -1,20 +1,21 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 class LoginPageTest {
     private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
-        webDriver = WebDriverProvider.setupWebDriver();
+        ChromeOptions options = new ChromeOptions().addArguments("--headless");
+        webDriver = new ChromeDriver(options);
         webDriver.navigate().to(LoginPage.LOGIN_URL);
     }
-
 
     @ParameterizedTest
     @CsvFileSource(resources = "/valid_user_credentials.csv")
@@ -27,7 +28,7 @@ class LoginPageTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/invalid_user_credentials.csv")
-    public void unsuccessfulLogin(String name, String password){
+    public void unsuccessfulLogin(String name, String password) {
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.logIn(name, password);
         Assertions.assertTrue(loginPage.isErrorMsgPopUp());
