@@ -34,6 +34,9 @@ public class MainPage extends BasePage {
     @FindBy(css = "a[id*='logout']")
     private WebElement logoutSidebar;
 
+    @FindBy(xpath = "//*[@id='back-to-products']")
+    private WebElement goBackToProductsButton;
+
 
     public MainPage(WebDriver webDriver) {
         super(webDriver);
@@ -54,6 +57,14 @@ public class MainPage extends BasePage {
         menu.click();
         wait.until(ExpectedConditions.visibilityOf(logoutSidebar));
         logoutSidebar.click();
+    }
+
+    public void checkItemDetails(){
+        itemName.click();
+    }
+
+    public boolean areWeOnProductsDetails(){
+      return goBackToProductsButton.isDisplayed();
     }
 }
 
