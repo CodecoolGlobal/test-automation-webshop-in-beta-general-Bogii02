@@ -9,6 +9,9 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//div[@class='cart_list']/div[@class='cart_item']")
     private List<WebElement> itemsInCart;
 
+    @FindBy(id = "checkout")
+    private WebElement checkoutButton;
+
     public CartPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -25,5 +28,9 @@ public class CartPage extends BasePage {
 
     public boolean verifyCartIsEmpty() {
         return itemsInCart.isEmpty();
+    }
+  
+    public void clickOnCheckout() {
+        checkoutButton.click();
     }
 }

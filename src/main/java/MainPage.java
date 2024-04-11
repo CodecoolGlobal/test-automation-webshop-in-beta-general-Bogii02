@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class MainPage extends BasePage {
     @FindBy(css = "button[id='react-burger-menu-btn']")
     private WebElement menu;
 
-    @FindBy(css = "a[id^='logout']")
+    @FindBy(xpath = "//*[@id='logout_sidebar_link']")
     private WebElement logoutButton;
 
     @FindBy(css = "a[id^='logout']")
@@ -30,6 +31,12 @@ public class MainPage extends BasePage {
     @FindBy(css = "a[data-test='shopping-cart-link']")
     private WebElement shoppingCartButton;
 
+    @FindBy(css = "a[id*='logout']")
+    private WebElement logoutSidebar;
+
+    @FindBy(xpath = "//*[@id='back-to-products']")
+    private WebElement goBackToProductsButton;
+
 
     public MainPage(WebDriver webDriver) {
         super(webDriver);
@@ -42,7 +49,28 @@ public class MainPage extends BasePage {
         return products.size();
     }
 
+    public void addOneElementToCart() {
+        WebElement element = products.get(0);
+        element.findElement(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory ']")).click();
+    }
+
     public void navigateToCart() {
         shoppingCartButton.click();
     }
+
+    public void logOut(){
+        menu.click();
+        wait.until(ExpectedConditions.visibilityOf(logoutSidebar));
+        logoutSidebar.click();
+    }
+
+    public void checkItemDetails(){
+        itemName.click();
+    }
+
+    public boolean areWeOnProductsDetails(){
+      return goBackToProductsButton.isDisplayed();
+    }
 }
+
+
