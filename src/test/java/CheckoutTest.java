@@ -19,12 +19,13 @@ public class CheckoutTest {
         loginPage.logIn("standard_user", "secret_sauce");
 
         MainPage shop = new MainPage(webDriver);
+        CartPage cart = new CartPage(webDriver);
         CheckoutPage checkout = new CheckoutPage(webDriver);
 
         shop.addOneElementToCart();
         shop.navigateToCart();
 
-        checkout.clickOnCheckout();
+        cart.clickOnCheckout();
         checkout.fillInDataForCheckout("Test", "Test", 1234);
         checkout.clickOnContinueButton();
         checkout.clickOnFinishButton();
@@ -38,12 +39,14 @@ public class CheckoutTest {
         loginPage.logIn("problem_user", "secret_sauce");
 
         MainPage shop = new MainPage(webDriver);
+        CartPage cart = new CartPage(webDriver);
         CheckoutPage checkout = new CheckoutPage(webDriver);
 
         shop.addOneElementToCart();
         shop.navigateToCart();
 
-        checkout.clickOnCheckout();
+        cart.clickOnCheckout();
+
         checkout.fillInDataForCheckout("Test", "Test", 1234);
         checkout.clickOnContinueButton();
 
