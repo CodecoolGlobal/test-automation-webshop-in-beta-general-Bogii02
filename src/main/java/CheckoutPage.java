@@ -4,9 +4,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class CheckoutPage extends BasePage {
 
-    @FindBy(id = "checkout")
-    private WebElement checkoutButton;
-
     @FindBy(id = "first-name")
     private WebElement firstNameInput;
 
@@ -44,9 +41,6 @@ public class CheckoutPage extends BasePage {
         super(webDriver);
     }
 
-    public void clickOnCheckout() {
-        checkoutButton.click();
-    }
 
     public void fillInDataForCheckout(String firstName, String lastName, int postalCode) {
         fillFirstName(firstName);
@@ -66,7 +60,7 @@ public class CheckoutPage extends BasePage {
         return checkoutMessage.isDisplayed();
     }
 
-    public boolean isErrorMessageDisplayed(){
+    public boolean isErrorMessageDisplayed() {
         return informationErrorMessage.getText().contains("Error");
     }
 }
