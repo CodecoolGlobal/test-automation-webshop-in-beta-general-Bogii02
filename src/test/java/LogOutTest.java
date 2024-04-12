@@ -17,6 +17,7 @@ public class LogOutTest {
         ChromeOptions options = new ChromeOptions().addArguments("--headless");
         webDriver = new ChromeDriver(options);
         loginPage = new LoginPage(webDriver);
+        webDriver.navigate().to(LoginPage.LOGIN_URL);
         loginPage.logIn("standard_user", "secret_sauce");
     }
 
