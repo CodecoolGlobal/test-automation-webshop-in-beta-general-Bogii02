@@ -20,6 +20,7 @@ public class SortProductsTest {
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.logIn("standard_user", "secret_sauce");
     }
+
     @Test
     public void sortAtoZTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -31,6 +32,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortPrizeLowToHighTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -42,6 +44,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortZtoATest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -53,6 +56,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortPrizeHighToLowTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -64,6 +68,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @AfterEach
     public void tearDown() {
         try {

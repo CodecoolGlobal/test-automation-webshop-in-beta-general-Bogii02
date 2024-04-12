@@ -13,8 +13,8 @@ public class LogOutTest {
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
-        webDriver.navigate().to(LoginPage.LOGIN_URL);
         loginPage = new LoginPage(webDriver);
+        webDriver.navigate().to(LoginPage.LOGIN_URL);
         loginPage.logIn("standard_user", "secret_sauce");
     }
 
