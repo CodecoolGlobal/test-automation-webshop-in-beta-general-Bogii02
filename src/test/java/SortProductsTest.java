@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,12 +15,12 @@ public class SortProductsTest {
 
     @BeforeEach
     public void setup() {
-        ChromeOptions options = new ChromeOptions().addArguments("--headless");
-        webDriver = new ChromeDriver(options);
+        webDriver = WebDriverProvider.setupWebDriver();
         webDriver.navigate().to(LoginPage.LOGIN_URL);
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.logIn("standard_user", "secret_sauce");
     }
+
     @Test
     public void sortAtoZTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -34,6 +32,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortPrizeLowToHighTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -45,6 +44,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortZtoATest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -56,6 +56,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sortPrizeHighToLowTest() {
         MainPage mainPage = new MainPage(webDriver);
@@ -67,6 +68,7 @@ public class SortProductsTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @AfterEach
     public void tearDown() {
         try {
