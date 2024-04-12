@@ -13,6 +13,7 @@ public class CheckoutTest {
         webDriver.navigate().to(LoginPage.LOGIN_URL);
     }
 
+
     @Test
     public void successfulCheckOutTest() {
         LoginPage loginPage = new LoginPage(webDriver);
