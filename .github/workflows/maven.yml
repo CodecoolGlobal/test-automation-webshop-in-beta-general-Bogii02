@@ -31,6 +31,7 @@ jobs:
       #run: mvn -B package --file pom.xml
       run: |
         mvn install
+        mvn -B package --file pom.xml
 
     - name: Run tests
       run: mvn clean test
