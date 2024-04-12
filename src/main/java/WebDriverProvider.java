@@ -7,7 +7,7 @@ public class WebDriverProvider {
 
     public static WebDriver setupWebDriver() {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
+        ChromeOptions chromeOptions = new ChromeOptions().addArguments("--headless");
         return new ChromeDriver(chromeOptions);
     }
 }
