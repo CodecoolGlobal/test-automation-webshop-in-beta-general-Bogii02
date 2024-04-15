@@ -35,3 +35,9 @@ jobs:
       run: export BROWSER=$browser
     - name: Build with Maven
       run: mvn package
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-reports
+        path: target/surefire-reports
