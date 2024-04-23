@@ -33,14 +33,7 @@ class LoginPageTest {
 
     @AfterEach
     public void tearDown() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            System.err.println("Thread sleep interrupted: " + e.getMessage());
-            Thread.currentThread().interrupt();
-        } finally {
-            webDriver.quit();
-        }
+        webDriver.quit();
     }
 
 

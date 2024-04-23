@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/CodecoolGlobal/test-automation-webshop-in-beta-general-Bogii02">
-    <img src="images/selenium.png" alt="Logo" width="50%" height="50%">
+    <img src="images/selenium.png" alt="Logo" width="20%" height="20%">
   </a>
 
 <h3 align="center">Selenium Webshop Automation Test</h3>
